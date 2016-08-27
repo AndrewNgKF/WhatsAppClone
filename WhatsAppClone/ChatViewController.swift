@@ -49,7 +49,9 @@ class ChatViewController: UIViewController {
         newMessageArea.addSubview(sendButton)
         
         sendButton.setTitle("Send", for: .normal)
+        sendButton.addTarget(self, action: #selector(pressedSend), for: .touchUpInside)
         sendButton.setContentHuggingPriority(251, for: .horizontal)
+        sendButton.setContentCompressionResistancePriority(751, for: .horizontal)
         
         bottomConstraint = newMessageArea.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         bottomConstraint.isActive = true
@@ -93,9 +95,16 @@ class ChatViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillShow) , name:
             NSNotification.Name.UIKeyboardWillShow, object: nil)
-        /*
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillHide) , name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        */
+        
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillHide) , name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.handleSingleTap))
+        tapRecognizer.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapRecognizer)
+        
+       
     }
     
     //#selector(keyboardWillShow(_:)
@@ -108,21 +117,54 @@ class ChatViewController: UIViewController {
     }
     
     
-    func keyboardWillShow(sender: NSNotification) {
+    func keyboardWillShow(notification: NSNotification) {
+        updateBottomConstraint(notification: notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        updateBottomConstraint(notification: notification)
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    func updateBottomConstraint(notification: NSNotification) {
         
-        
-        let userInfo = sender.userInfo
+        let userInfo = notification.userInfo
         let keyboardFrame: CGRect = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         //let frame : CGRect = (userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSValue).cgRectValue
         let newFrame = view.convert(keyboardFrame, from: (UIApplication.shared.delegate?.window)!)
         bottomConstraint.constant = newFrame.origin.y - view.frame.height
-
+        
         
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
             
             self.view.layoutIfNeeded()
             
         })
+    }
+    
+    func pressedSend(button: UIButton) {
+        guard let text = newMessageField.text, text.characters.count > 0 else {return}
+        let message = Message()
+        message.text = text
+        message.incoming = false
+        messages.append(message)
+
+        
+        //let path = NSIndexPath(row: tableView.numberOfRows(inSection: 0), section: 0)
+        let lastSectionIndex = self.tableView.numberOfSections - 1
+        let lastRowIndex = self.tableView.numberOfRows(inSection: lastSectionIndex)-1
+        let pathToLastRow = NSIndexPath(row: lastRowIndex, section: lastSectionIndex)
+        
+        tableView.reloadData()
+
+        tableView.scrollToRow(at: pathToLastRow as IndexPath, at: .bottom, animated: true)
+
+        
+
+        
     }
 
         
