@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F0385061D709E330074B10E /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0385051D709E330074B10E /* ChatCell.swift */; };
 		6F6E13C81D7049FF00F19122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6E13C71D7049FF00F19122 /* AppDelegate.swift */; };
 		6F6E13CA1D7049FF00F19122 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6E13C91D7049FF00F19122 /* ChatViewController.swift */; };
 		6F6E13CD1D7049FF00F19122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F6E13CB1D7049FF00F19122 /* Main.storyboard */; };
 		6F6E13CF1D7049FF00F19122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F6E13CE1D7049FF00F19122 /* Assets.xcassets */; };
 		6F6E13D21D7049FF00F19122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F6E13D01D7049FF00F19122 /* LaunchScreen.storyboard */; };
+		6F6E13DA1D70823700F19122 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6E13D91D70823700F19122 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F0385051D709E330074B10E /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		6F6E13C41D7049FF00F19122 /* WhatsAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsAppClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F6E13C71D7049FF00F19122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F6E13C91D7049FF00F19122 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		6F6E13CE1D7049FF00F19122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F6E13D11D7049FF00F19122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F6E13D31D7049FF00F19122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F6E13D91D70823700F19122 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				6F6E13CE1D7049FF00F19122 /* Assets.xcassets */,
 				6F6E13D01D7049FF00F19122 /* LaunchScreen.storyboard */,
 				6F6E13D31D7049FF00F19122 /* Info.plist */,
+				6F6E13D91D70823700F19122 /* Message.swift */,
+				6F0385051D709E330074B10E /* ChatCell.swift */,
 			);
 			path = WhatsAppClone;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6E13DA1D70823700F19122 /* Message.swift in Sources */,
+				6F0385061D709E330074B10E /* ChatCell.swift in Sources */,
 				6F6E13CA1D7049FF00F19122 /* ChatViewController.swift in Sources */,
 				6F6E13C81D7049FF00F19122 /* AppDelegate.swift in Sources */,
 			);
@@ -261,6 +269,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7FUMWZ2NUV;
 				INFOPLIST_FILE = WhatsAppClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewNg.WhatsAppClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,6 +283,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7FUMWZ2NUV;
 				INFOPLIST_FILE = WhatsAppClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewNg.WhatsAppClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +310,7 @@
 				6F6E13D81D7049FF00F19122 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
